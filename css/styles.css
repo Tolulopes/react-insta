@@ -1,0 +1,165 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+#insta-container {
+  width: 65em;
+  margin: 0 auto;
+  min-height: 40rem;
+  height: 1px;
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.is-default.insta-thumbnails {
+  overflow: hidden;
+  padding-bottom: 1.6rem;
+  position: relative;
+  width: 1010px;
+  margin: 0 auto;
+}
+
+.insta-thumbnails {
+  width: 1010px;
+  margin: 0 auto;
+}
+
+.insta-thumbnails ul {
+  list-style: none;
+  padding: 0;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.5s;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  transition: -webkit-transform 0.5s, -moz-transform 0.5s, -o-transform 0.5s, transform 0.5s;
+}
+
+.is-default.insta-thumbnails li {
+  display: inline-block;
+  font-size: 0;
+  margin-right: 20px;
+  width: 320px;
+  height: 400px;
+}
+
+.insta-thumbnails li {
+  display: inline-block;
+  font-size: 0;
+  margin-right: 16px;
+  width: 240px;
+}
+
+/*nth-child(3n) mutliple of 3. Every 3rd li*/
+.is-default.insta-thumbnails li:nth-child(3n),
+.insta-thumbnails li:nth-child(4n) {
+  margin-right: 0;
+}
+
+.insta-thumbnails figure {
+  color: #f1f1f1;
+  cursor: pointer;
+  margin: 0;
+}
+
+.insta-thumbnails figcaption {
+  font-size: 12px;
+}
+
+.insta-thumbnails figcaption .svg-icon {
+  fill: #fff;
+}
+
+.is-default.insta-thumbnails img {
+  border: 1px solid #cfcfcf;
+  display: block;
+  margin-bottom: 0.4rem;
+  padding: 3px;
+  width: 320px;
+}
+
+.insta-thumbnails img {
+  border: 1px solid #cfcfcf;
+  display: block;
+  margin-bottom: 0.4rem;
+  padding: 3px;
+  width: 240px;
+}
+
+#carousel-container .pulse {
+  margin: 0 auto;
+  display: block;
+  height: 100%;
+}
+
+.tool-bar {
+  margin: 0 4px;
+}
+
+.is-default .view-toggler .four-grid,
+.view-toggler .three-grid {
+  color: unset;
+  cursor: pointer;
+}
+
+.view-toggler .four-grid .block,
+.view-toggler .three-grid .block {
+  height:14px;
+  width:10px;
+}
+
+.is-default .view-toggler .four-grid .block,
+.view-toggler .three-grid .block {
+  fill: #ccc;
+}
+
+.is-default .view-toggler .three-grid,
+.view-toggler .four-grid {
+  color: blue;
+}
+
+.is-default .view-toggler .three-grid .block,
+.view-toggler .four-grid .block {
+  fill: #005fbf;
+}
