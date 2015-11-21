@@ -17,6 +17,22 @@ var InstaThumbnail = React.createClass({
     this.setState({isDefault: isDefault});
   },
 
+  getLikesSVG: function () {
+    return (
+      `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 32 32">
+        <path fill="#fff" d="M23.6 2c-3.363 0-6.258 2.736-7.599 5.594-1.342-2.858-4.237-5.594-7.601-5.594-4.637 0-8.4 3.764-8.4 8.401 0 9.433 9.516 11.906 16.001 21.232 6.13-9.268 15.999-12.1 15.999-21.232 0-4.637-3.763-8.401-8.4-8.401z"></path>
+      </svg>`
+    )
+  },
+
+  getCommentsSVG: function () {
+    return (
+      `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 32 32">
+        <path fill="#fff" d="M16 2c8.837 0 16 5.82 16 13s-7.163 13-16 13c-0.849 0-1.682-0.054-2.495-0.158-3.437 3.437-7.539 4.053-11.505 4.144v-0.841c2.142-1.049 4-2.961 4-5.145 0-0.305-0.024-0.604-0.068-0.897-3.619-2.383-5.932-6.024-5.932-10.103 0-7.18 7.163-13 16-13z"></path>
+      </svg>`
+    )
+  },
+
   render: function () {
     var className = cx({
       'is-default': this.state.isDefault,
@@ -28,6 +44,15 @@ var InstaThumbnail = React.createClass({
         <li key={i} className='insta-thumbnail'>
           <figure>
             <img src={item.images.low_resolution.url} />
+            // <Overlay prop={item}/>
+              <div className='overlay'>
+                <span className='likes'>
+                  <span dangerouslySetInnerHTML={{__html: this.getLikesSVG()}}></span> {item.likes.count}
+                </span>
+                <span className='comments'>
+                  <span dangerouslySetInnerHTML={{__html: this.getCommentsSVG()}}></span> {item.comments.count}
+                </span>
+              </div>
           </figure>
         </li>
       )
@@ -68,11 +93,11 @@ var ViewToggler = React.createClass({
     return (
       `<svg class='four-grid' height="20" width="55" xmlns="http://www.w3.org/2000/svg">
           <g>
-              <rect class='container' stroke="#005fbf" height="20" width="55" y="0" x="0" stroke-width="0.5" fill="none" />
-              <rect class='block' y="2.75" x="3.25" stroke-width="0.5" />
-              <rect class='block' y="2.75" x="16.25" stroke-width="0.5" />
-              <rect class='block' y="2.75" x="29.25" stroke-width="0.5" />
-              <rect class='block' y="2.75" x="42.25" stroke-width="0.5" />
+            <rect class='container' stroke="#005fbf" height="20" width="55" y="0" x="0" stroke-width="0.5" fill="none" />
+            <rect class='block' y="2.75" x="3.25" stroke-width="0.5" />
+            <rect class='block' y="2.75" x="16.25" stroke-width="0.5" />
+            <rect class='block' y="2.75" x="29.25" stroke-width="0.5" />
+            <rect class='block' y="2.75" x="42.25" stroke-width="0.5" />
           </g>
       </svg>`
     )
@@ -81,22 +106,21 @@ var ViewToggler = React.createClass({
   getThreeGridSVG: function () {
     return (
       `<svg class='three-grid' height="20" width="55" xmlns="http://www.w3.org/2000/svg">
-          <g>
-              <rect class='container' stroke="#005fbf" height="20" width="55" y="0" x="0" stroke-width="0.5" fill="none" />
-              <rect class='block' y="2.75" x="3.25" stroke-width="0.5" />
-              <rect class='block' y="2.75" x="16.25" stroke-width="0.5" />
-              <rect class='block' y="2.75" x="29.25" stroke-width="0.5" />
-              <rect class='block' y="2.75" x="42.25" stroke-width="0.5" />
-          </g>
-      </svg>`
+        <g>
+          <rect class='container' stroke="#005fbf" height="20" width="55" y="0" x="0" stroke-width="0.5" fill="none" />
+          <rect class='block' height="14" width="14" y="2.75" x="3.25" stroke-width="0.5" />
+          <rect class='block' height="14" width="14" y="2.75" x="20.25" stroke-width="0.5" />
+          <rect class='block' height="14" width="14" y="2.75" x="37.25" stroke-width="0.5" />
+        </g>
+    </svg>`
     )
   },
 
   render: function () {
     return (
       <span className='view-toggler'>
-        <span onClick={this.toggleView.bind(null, false)} dangerouslySetInnerHTML={{__html: this.getFourGridSVG()}}></span>
         <span onClick={this.toggleView.bind(null, true)} dangerouslySetInnerHTML={{__html: this.getThreeGridSVG()}}></span>
+        <span onClick={this.toggleView.bind(null, false)} dangerouslySetInnerHTML={{__html: this.getFourGridSVG()}}></span>
       </span>
     )
   }
